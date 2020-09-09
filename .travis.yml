@@ -12,7 +12,6 @@ before_install:
   - sudo apt install rpm
   - sudo apt install build-essential python3 tar wget
   - python3 ftp_version.py
-  - python3 minikube_version.py
 
 script:
   - bash build.sh
