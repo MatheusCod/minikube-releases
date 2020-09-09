@@ -24,7 +24,7 @@ then
     sudo chmod -R 777 minikube
     cd minikube
     make
-    make test
+    #make test
     sudo mv $LOCALPATH/k8s.io/minikube/out/minikube $LOCALPATH/k8s.io/minikube/out/minikube_$github_version
     git clone https://$USERNAME:$TOKEN@github.com/Unicamp-OpenPower/repository-scrips.git
     cd repository-scrips/
