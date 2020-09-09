@@ -4,13 +4,13 @@ REMOTEPATH='/ppc64el/minikube'
 ROOTPATH="~/rpmbuild/RPMS/ppc64le"
 #REPO1="/repository/debian/ppc64el/minikube"
 #REPO2="/repository/rpm/ppc64le/minikube"
-REPO1="/test/matheus"
-REPO2="/test/matheus"
+REPO1="/teste/matheus"
+REPO2="/teste/matheus"
 github_version=$(cat github_version.txt)
 ftp_version=$(cat ftp_version.txt)
 del_version=$(cat delete_version.txt)
 
-if [ $github_version != $ftp_version ]
+if [ $github_version = $ftp_version ]
 then
     # cd /home/travis/gopath/src
     cd $LOCALPATH
@@ -35,7 +35,7 @@ then
     cd $LOCALPATH/k8s.io/minikube/out/
     sudo ./empacotar-deb.sh minikube minikube-$github_version $github_version " "
     sudo ./empacotar-rpm.sh minikube minikube-$github_version $github_version " " "minikube implements a local Kubernetes cluster on macOS, Linux, and Windows"
-    if [[ $github_version > $ftp_version ]]
+    if [[ $github_version = $ftp_version ]]
     then
         #sudo lftp -c "open -u $USER,$PASS ftp://oplab9.parqtec.unicamp.br; put -O /ppc64el/minikube/latest/ $LOCALPATH/k8s.io/minikube/out/minikube_$github_version"
         #sudo lftp -c "open -u $USER,$PASS ftp://oplab9.parqtec.unicamp.br; rm /ppc64el/minikube/latest/minikube_$del_version"
