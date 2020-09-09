@@ -19,7 +19,7 @@ then
     sudo wget https://github.com/kubernetes/minikube/archive/v$github_version.zip
     sudo unzip v$github_version.zip
     ls
-    sudo mv minikube-v$version minikube
+    sudo mv minikube-$github_version minikube
     ls
     sudo chmod -R 777 minikube
     cd minikube
