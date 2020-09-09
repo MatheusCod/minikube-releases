@@ -1,5 +1,5 @@
 FTP_HOST='oplab9.parqtec.unicamp.br'
-LOCALPATH=$GOPATH/src/
+LOCALPATH=$GOPATH/src
 REMOTEPATH='/ppc64el/minikube'
 ROOTPATH="~/rpmbuild/RPMS/ppc64le"
 #REPO1="/repository/debian/ppc64el/minikube"
@@ -40,7 +40,7 @@ then
         #sudo lftp -c "open -u $USER,$PASS ftp://oplab9.parqtec.unicamp.br; put -O /ppc64el/minikube/latest/ $LOCALPATH/k8s.io/minikube/out/minikube_$github_version"
         #sudo lftp -c "open -u $USER,$PASS ftp://oplab9.parqtec.unicamp.br; rm /ppc64el/minikube/latest/minikube_$del_version"
         lftp -c "open -u $USER,$PASS ftp://oplab9.parqtec.unicamp.br; put -O $REPO1 $LOCALPATH/minikube-$github_version-ppc64le.deb"
-        sudo lftp -c "open -u $USER,$PASS ftp://oplab9.parqtec.unicamp.br; put -O $REPO2 $ROOTPATH/minikube-$github_version-1-ppc64le.rpm"
+        sudo lftp -c "open -u $USER,$PASS ftp://oplab9.parqtec.unicamp.br; put -O $REPO2 $ROOTPATH/minikube-$github_version-1.ppc64le.rpm"
     fi
     #sudo lftp -c "open -u $USER,$PASS ftp://oplab9.parqtec.unicamp.br; put -O /ppc64el/minikube/ /home/travis/gopath/src/k8s.io/minikube/out/minikube_$gtihub_version"
     #sudo lftp -c "open -u $USER,$PASS ftp://oplab9.parqtec.unicamp.br; rm /ppc64el/minikube/minikube_$del_version"
