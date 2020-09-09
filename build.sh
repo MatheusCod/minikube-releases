@@ -12,19 +12,16 @@ del_version=$(cat delete_version.txt)
 
 if [ $github_version = $ftp_version ]
 then
-    # cd /home/travis/gopath/src
     cd $LOCALPATH
     mkdir k8s.io
     cd k8s.io
     sudo wget https://github.com/kubernetes/minikube/archive/v$github_version.zip
     sudo unzip v$github_version.zip
-    ls
     sudo mv minikube-$github_version minikube
-    ls
     sudo chmod -R 777 minikube
     cd minikube
     make
-    #make test
+    make test
     sudo mv $LOCALPATH/k8s.io/minikube/out/minikube $LOCALPATH/k8s.io/minikube/out/minikube_$github_version
     git clone https://$USERNAME:$TOKEN@github.com/Unicamp-OpenPower/repository-scrips.git
     cd repository-scrips/
