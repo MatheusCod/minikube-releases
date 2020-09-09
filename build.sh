@@ -33,14 +33,14 @@ then
     sudo mv empacotar-deb.sh $LOCALPATH/k8s.io/minikube/out/
     sudo mv empacotar-rpm.sh $LOCALPATH/k8s.io/minikube/out/
     cd $LOCALPATH/k8s.io/minikube/out/
-    sudo ./empacotar-deb.sh minikube minikube-$github_version $github_version " "
-    sudo ./empacotar-rpm.sh minikube minikube-$github_version $github_version " " "minikube implements a local Kubernetes cluster on macOS, Linux, and Windows"
+    sudo ./empacotar-deb.sh minikube minikube_$github_version $github_version " "
+    sudo ./empacotar-rpm.sh minikube minikube_$github_version $github_version " " "minikube implements a local Kubernetes cluster on macOS, Linux, and Windows"
     if [[ $github_version = $ftp_version ]]
     then
         #sudo lftp -c "open -u $USER,$PASS ftp://oplab9.parqtec.unicamp.br; put -O /ppc64el/minikube/latest/ $LOCALPATH/k8s.io/minikube/out/minikube_$github_version"
         #sudo lftp -c "open -u $USER,$PASS ftp://oplab9.parqtec.unicamp.br; rm /ppc64el/minikube/latest/minikube_$del_version"
-        lftp -c "open -u $USER,$PASS ftp://oplab9.parqtec.unicamp.br; put -O $REPO1 $LOCALPATH/k8s.io/minikube/out/minikube-$github_version-ppc64le.deb"
-        sudo lftp -c "open -u $USER,$PASS ftp://oplab9.parqtec.unicamp.br; put -O $REPO2 $ROOTPATH/minikube-$github_version-1.ppc64le.rpm"
+        lftp -c "open -u $USER,$PASS ftp://oplab9.parqtec.unicamp.br; put -O $REPO1 $LOCALPATH/k8s.io/minikube/out/minikube_$github_version-ppc64le.deb"
+        sudo lftp -c "open -u $USER,$PASS ftp://oplab9.parqtec.unicamp.br; put -O $REPO2 $ROOTPATH/minikube_$github_version-1.ppc64le.rpm"
     fi
     #sudo lftp -c "open -u $USER,$PASS ftp://oplab9.parqtec.unicamp.br; put -O /ppc64el/minikube/ /home/travis/gopath/src/k8s.io/minikube/out/minikube_$gtihub_version"
     #sudo lftp -c "open -u $USER,$PASS ftp://oplab9.parqtec.unicamp.br; rm /ppc64el/minikube/minikube_$del_version"
